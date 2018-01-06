@@ -1,6 +1,6 @@
 
 FROM hello-world
-
+MAINTAINER Munesh Kumar Reddy
 RUN apt-get update
 RUN apt-get -y install nginx
 
