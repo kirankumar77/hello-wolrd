@@ -1,0 +1,77 @@
+kirankumarrv0990@cloudshell:~ (devops-test-316311)$ bq show devops-test-316311:vinaytesting
+Dataset devops-test-316311:vinaytesting
+
+   Last modified                ACLs                Labels    Type
+ ----------------- ------------------------------- -------- ---------
+  06 Sep 13:45:34   Owners:                                  DEFAULT
+                      kirankumarrv0990@gmail.com,
+                      projectOwners
+                    Writers:
+                      projectWriters
+                    Readers:
+                      projectReaders
+
+kirankumarrv0990@cloudshell:~ (devops-test-316311)$ bq show devops-test-316311:vinaytesting
+Dataset devops-test-316311:vinaytesting
+
+   Last modified                ACLs                Labels    Type
+ ----------------- ------------------------------- -------- ---------
+  06 Sep 13:47:12   Owners:                                  DEFAULT
+                      kirankumarrv0990@gmail.com,
+                      projectOwners
+                    Writers:
+                      projectWriters
+                    Readers:
+                      projectReaders
+                    roles/bigquery.admin:
+                      pgvnyreddy@gmail.com
+
+
+kirankumarrv0990@cloudshell:~ (devops-test-316311)$ bq ls
+   datasetId
+ --------------
+  saitesting
+  testingbatch
+  vinaytesting
+
+
+
+
+
+
+
+
+kirankumarrv0990@cloudshell:~ (devops-test-316311)$ bq ls --max_results 1000 'devops-test:sai-testing'                                                       
+BigQuery error in ls operation: Not found: Project devops-test
+kirankumarrv0990@cloudshell:~ (devops-test-316311)$ bq ls --max_results 1000 'devops-test-316311:sai-testing'                                                
+BigQuery error in ls operation: Not found: Dataset devops-test-316311:sai-testing
+kirankumarrv0990@cloudshell:~ (devops-test-316311)$ bq ls --max_results 1000 'devops-test-316311:saitesting'                                                 
+kirankumarrv0990@cloudshell:~ (devops-test-316311)$ bq mk vinaytesting
+Dataset 'devops-test-316311:vinaytesting' successfully created.
+kirankumarrv0990@cloudshell:~ (devops-test-316311)$ bq ls
+   datasetId
+ --------------
+  saitesting
+  testingbatch
+  vinaytesting
+kirankumarrv0990@cloudshell:~ (devops-test-316311)$ bq rm vinaytesting
+rm: remove dataset 'devops-test-316311:vinaytesting'? (y/N) y
+kirankumarrv0990@cloudshell:~ (devops-test-316311)$ bq ls
+   datasetId
+ --------------
+  saitesting
+  testingbatch
+
+
+
+
+
+
+
+
+
+
+
+
+
+

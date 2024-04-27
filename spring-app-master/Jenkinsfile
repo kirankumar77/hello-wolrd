@@ -1,0 +1,36 @@
+node {
+
+      def app
+
+    stage('Clone repository') {
+        /* Cloning the Repository to our Workspace */
+
+        checkout scm
+    }
+
+    stage('Build image') {
+        /* This builds the actual image */
+
+        app = docker.build("kirankumar77/demoapp")
+    }
+
+    stage('Compile') {
+       sh "mvn clean compile"
+      }
+
+    stage('Test and Package') {
+       sh "mvn package"
+      }
+
+    stage('Push image') {
+        /* 
+			You would need to first register with DockerHub before you can push images to your account(id need to mention which is present in jenkins credential)
+		*/
+        docker.withRegistry('https://registry.hub.docker.com', 'github with dockerhub') {
+            app.push("${env.BUILD_NUMBER}")
+            app.push("latest")
+            } 
+                echo "Trying to Push Docker Build to DockerHub"
+      }
+}
+
